@@ -1,0 +1,49 @@
+html {
+  line-height: 1.25;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  direction: ltr;
+
+  background-color: $base_bg;
+  color: $base_color;
+
+  min-width: 320px;
+}
+
+[contenteditable='true'] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+  outline: none;
+  cursor: text;
+  white-space: pre-wrap;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+[contenteditable][data-placeholder]:before {
+  content: attr(data-placeholder);
+  color: #a2acb4;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  max-width: 100%;
+  padding-right: 0.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: opacity 0.02s ease;
+}
+
+[contenteditable][data-placeholder].is-empty:before {
+  opacity: 1;
+}
